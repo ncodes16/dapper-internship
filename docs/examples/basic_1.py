@@ -30,7 +30,7 @@ xx, yy = HMM.simulate()
 # ### Specify a DA method
 # Here "xp" is short for "experiment" configuration.
 
-xp = da.OptInterp() #try again
+xp = da.OptInterp() #try again again
 #xp = da.Var3D()
 #xp = da.ExtKF(infl=90)
 #xp = da.EnKF("Sqrt", N=10, infl=1.02, rot=True)
