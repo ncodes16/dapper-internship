@@ -30,11 +30,13 @@ xx, yy = HMM.simulate()
 # ### Specify a DA method
 # Here "xp" is short for "experiment" configuration.
 
-# xp = da.OptInterp()
-# xp = da.Var3D()
-# xp = da.ExtKF(infl=90)
-xp = da.EnKF("Sqrt", N=10, infl=1.02, rot=True)
-# xp = da.PartFilt(N=100, reg=2.4, NER=0.3)
+xp = da.OptInterp()
+#xp = da.Var3D()
+#xp = da.ExtKF(infl=90)
+#xp = da.EnKF("Sqrt", N=10, infl=1.02, rot=True)
+#xp = da.PartFilt(N=100, reg=2.4, NER=0.3)
+#xp = da.iEnKS(upd_a=["Sqrt"], N= 300, infl = 5) #--> rmse.a = 0.21 +- 0.06 compared to PartFilt rmse.a = 0.24 +- 0.06
+#Order1 seems to have much higher variance; up to 5 +- 7
 xp  # ⇒ printout (in notebooks)
 
 # ### Assimilate yy
@@ -56,9 +58,9 @@ print(xp.avrgs.tabulate(["rmse.a", "rmv.a"]))
 
 # ### Replay liveplotters
 
-xp.stats.replay(
+#xp.stats.replay(
     # speed=.6  # `speed` does not work in notebooks
-)
+#)
 
 # ### Further diagnostic plots
 

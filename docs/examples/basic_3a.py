@@ -52,13 +52,13 @@ HMM.tseq.Ko = 10**4
 # Param ranges
 params = dict(
     xB=[0.1, 0.2, 0.4, 1],
-    N=[5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50],
-    infl=1 + np.array([0, 0.01, 0.02, 0.04, 0.07, 0.1, 0.2, 0.4, 0.7, 1]),
+    N=[10, 20, 30, 50],
+    infl=1 + np.array([0, 0.01, 0.1, 0.7, 1]),
     rot=[True, False],
     loc_rad=dpr.round2sigfig([a * b for b in [0.1, 1, 10] for a in [1, 2, 4, 7]], 2),
 )
 # Combines all the params suitable for a method. See doc for dpr.combinator.
-for_params = dpr.combinator(params, seed=3000 + np.arange(10), Force=[8, 10])
+for_params = dpr.combinator(params, seed=[3000], Force=[10])
 
 xps = dpr.xpList()
 xps += for_params(da.Climatology)
